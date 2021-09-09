@@ -1,7 +1,35 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div class="page-background-class">
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+    <h1>Hello, Gale Trail Generation!</h1>
+
+    Welcome to your GaleTrail Portal.
+
+    <SurveyPrompt Title="Have you any GaleTrailCredits to Redeem?" />
+
+    <h3>@myMessage</h3>
+
+    <p>
+        With the adoption of innovative technologies in collaboration with Version 1,
+        GaleTrail will leverage its world-leading Future Environment database in order
+        to deliver build quality metrics, turbine recycling statistics and carbon emission
+        information to the renewable energy industry and public.
+    </p>
+
+    <span><img src="../images/GaleTrail.png" width = "800" height = "800" /></span>
+</div>
+@code
+    {
+    public string myMessage = RandomMessage();
+
+    public static string RandomMessage()
+    {
+        Random rnd = new Random();
+        int randomNumber = rnd.Next(0, 3);
+        string[] messageList = { "Welcome! How are you?", "This is Tom's Page!", "I am playing around with Blazor and c#", "This going quite well, I feel!" };
+        return (string)messageList.GetValue(randomNumber);
+    }
+}

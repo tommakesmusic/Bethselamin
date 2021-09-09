@@ -45,5 +45,32 @@ else
 
 
 @code {
+    // https://www.youtube.com/watch?v=cwgck1k0YKU
+    // commented out version uses long hand version of the request process
+    // other version is the short version
+
+    WeatherForeCastModel forecast; // Instantiate the class... but don't initialise it yet...
+    string errorString;
+
+    string city = RandomCity.getCity(false);
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        var client = _clientFactory.CreateClient("meta");
+
+        try
+        {
+            forecast = await client.GetFromJsonAsync<WeatherForeCastModel>(city);
+            errorString = null;
+        }
+        catch (Exception ex)
+        {
+            errorString = $"There was an error getting the weather data: {ex.Message}";
+        }
+
+
+    }
 
 }

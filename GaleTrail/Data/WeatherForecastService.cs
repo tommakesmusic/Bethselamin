@@ -8,7 +8,7 @@ namespace GaleTrail.Data
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Solsbury Hill", "Runningupthat Hill", "Mount Bicycle", "Damon Hill", "Molehill Mountain", "Mount Everest", "Slieve Rolledup", "Offshore X-13a", "Offshore X-13b", "Barmouth"
         };
 
         public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
@@ -17,7 +17,7 @@ namespace GaleTrail.Data
             return Task.FromResult(Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = startDate.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
+                TemperatureC = rng.Next(2234, 3765),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             }).ToArray());
         }
