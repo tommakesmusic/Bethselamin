@@ -1,0 +1,50 @@
+﻿@page "/Comic"
+
+@inject IHttpClientFactory _clientFactory
+
+<h3>Thank YOu XKCD</h3>
+
+@if (string.IsNullOrWhiteSpace(errorString) == false)
+{
+    <div class="h2">@errorString</div>
+}
+else if (xkcd is null)
+{
+    <div class="h4">Loading</div>
+}
+else
+{
+
+
+    <h2>@xkcd.title.</h2>
+    @if (!xkcd.safe_title.Equals(xkcd.title))
+    {
+        <h4>@xkcd.safe_title</h4>
+    }
+    <img src="@xkcd.img" alt="@xkcd.alt" />
+    <p>@xkcd.alt</p>
+
+}
+
+@code {
+
+    // uses short hand version of request process, including named client
+
+    XkcdComic xkcd;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = _clientFactory.CreateClient("comic");
+
+        try
+        {
+            xkcd = await client.GetFromJsonAsync<XkcdComic>("info.0.json");
+            errorString = null;
+        }
+        catch (Exception ex)
+        {
+            errorString = $"There was an error getting the comic: {ex.Message}";
+        }
+    }
+}
