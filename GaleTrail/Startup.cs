@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MudBlazor.Services;
 using GaleTrail.Data;
 
 namespace GaleTrail
@@ -38,6 +39,12 @@ namespace GaleTrail
             {
                 c.BaseAddress = new Uri(Configuration.GetValue<String>("MetaAPI")); // added by TC tutorial for short version
             });
+        }
+
+        // This method adds MudBlazor visual components to our peoject
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMudServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

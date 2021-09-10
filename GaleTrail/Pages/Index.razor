@@ -1,35 +1,42 @@
 ﻿@page "/"
+    <!-- Background image -->
+    <div class="bg-image" style="
+      background-image: url('Images/bg_image.jpg');
+      height: 100vh;
+    ">
+    <!-- Background image -->
+    
 
-<div class="page-background-class">
 
 
+        <h1>Hello, Gale Trail Generation!</h1>
 
-    <h1>Hello, Gale Trail Generation!</h1>
+        Welcome to your GaleTrail Portal.
 
-    Welcome to your GaleTrail Portal.
+        <SurveyPrompt Title="Have you any GaleTrailCredits to Redeem?" />
 
-    <SurveyPrompt Title="Have you any GaleTrailCredits to Redeem?" />
+        <h3>@myMessage</h3>
 
-    <h3>@myMessage</h3>
+        <p>
+            With the adoption of innovative technologies in collaboration with Version 1,
+            GaleTrail will leverage its world-leading Future Environment database in order
+            to deliver build quality metrics, turbine recycling statistics and carbon emission
+            information to the renewable energy industry and public.
+        </p>
 
-    <p>
-        With the adoption of innovative technologies in collaboration with Version 1,
-        GaleTrail will leverage its world-leading Future Environment database in order
-        to deliver build quality metrics, turbine recycling statistics and carbon emission
-        information to the renewable energy industry and public.
-    </p>
+        <span><img src="../images/GaleTrail.png" width="600" height="600" /></span>
+    </div>
 
-    <span><img src="../images/GaleTrail.png" width = "800" height = "800" /></span>
-</div>
-@code
+
+    @code
     {
-    public string myMessage = RandomMessage();
+        public string myMessage = RandomMessage();
 
-    public static string RandomMessage()
-    {
-        Random rnd = new Random();
-        int randomNumber = rnd.Next(0, 3);
-        string[] messageList = { "Welcome! How are you?", "This is Tom's Page!", "I am playing around with Blazor and c#", "This going quite well, I feel!" };
-        return (string)messageList.GetValue(randomNumber);
+        public static string RandomMessage()
+        {
+            Random rnd = new Random();
+            int randomNumber = rnd.Next(0, 3);
+            string[] messageList = { "Blockchain Generation suspended for maintenance. Please reload your page", "You have no new turbines ready. Would you like to deploy one?", "Invalid blockchain transaction at Turbine number 83477820", "No new blockchain transactions detected." };
+            return (string)messageList.GetValue(randomNumber);
+        }
     }
-}
