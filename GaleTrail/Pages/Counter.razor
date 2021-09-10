@@ -2,79 +2,83 @@
 @using System;
 @using System.Collections.Generic;
 
-<h1>Counter</h1>
-@if (currentCount > 0)
-{
-    <p>Geberated Block Id: @currentCount</p>
-}
-else
-{
-    <p> Click on the button below to generate a blockchain key.</p>
-}
 
-<button class="btn btn-primary" @onclick="IncrementCount">Generate</button>
-@if (currentCount > 0)
-{
-    <button class="btn btn-primary" @onclick="DecrementCount">Store</button>
-}
-<table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>Stored Blocks</th>
-            <th>Assigned to</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (int block in storeBlock)
-        {
+<MudPaper Class="pa-16 ma-2" Elevation="3">
+    <h1>Blockchain Genisis Block Generator</h1>
+    @if (currentCount > 0)
+    {
+        <p>Geberated Block Id: @currentCount</p>
+    }
+    else
+    {
+        <p> Click on the button below to generate a blockchain key.</p>
+    }
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="IncrementCount"> Generate Block </MudButton>
+
+
+    @if (currentCount > 0)
+    {
+        <MudButton Variant="Variant.Filled" Color="Color.Secondary" @onclick="DecrementCount"> Store </MudButton>
+    }
+    <MudSimpleTable Hover="true" Bordered="true" Striped="true" Style="overflow-x: auto;">
+        <thead class="thead-dark">
             <tr>
-                <td>@block</td>
-                <td><form action="">
-                        <select id="sites" name="Sites">
-                            <label for="Sites">Choose a Site:</label>
-                            @foreach (string str in @category)
-                                {
-                                <option value="@str">
-                                     @str
-                                </option>
-                            }
-                        </select>
-                    </form>
-                </td>
+                <th>Stored Blocks</th>
+                <th>Assigned to</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (int block in storeBlock)
+            {
+                <tr>
+                    <td>@block</td>
+                    <td>
+                        <form action="">
+                            <select id="sites" name="Sites">
+                                <label for="Sites">Choose a Site:</label>
+                                @foreach (string str in @category)
+                                {
+                                    <option value="@str">
+                                        @str
+                                    </option>
+                                }
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+            }
 
 
-    </tbody>
-</table>
+        </tbody>
+    </MudSimpleTable>
 
+    </MudPaper>
 
+    <h1>@ourMessage</h1>
 
-<h1>@ourMessage</h1>
-
-@code {
-    public int currentCount = StoreCount.GetCount();
-    public string ourMessage = StoreCount.GetMessage();
-    public static List<int> storeBlock = new List<int>();
-    public string[] category = {
+    @code {
+        public int currentCount = StoreCount.GetCount();
+        public string ourMessage = StoreCount.GetMessage();
+        public static List<int> storeBlock = new List<int>();
+        public string[] category = {
             "Solsbury Hill", "Runningupthat Hill", "Mount Bicycle", "Damon Hill", "Molehill Mountain", "Mount Everest", "Slieve Rolledup", "Offshore X-13a", "Offshore X-13b", "Barmouth"
         };
 
 
-    private void IncrementCount()
-    {
-        StoreCount.SetCount();
-        currentCount = StoreCount.GetCount();
-        ourMessage = StoreCount.GetMessage();
+        private void IncrementCount()
+        {
+            StoreCount.SetCount();
+            currentCount = StoreCount.GetCount();
+            ourMessage = StoreCount.GetMessage();
+        }
+
+        private void DecrementCount()
+        {
+            storeBlock.Add(StoreCount.GetCount());
+            StoreCount.DecCount();
+            currentCount = Models.StoreCount.GetCount();
+            ourMessage = StoreCount.GetMessage();
+        }
+
+
     }
-
-    private void DecrementCount()
-    {
-        storeBlock.Add(StoreCount.GetCount());
-        StoreCount.DecCount();
-        currentCount = Models.StoreCount.GetCount();
-        ourMessage = StoreCount.GetMessage();
-    }
-
-
-}

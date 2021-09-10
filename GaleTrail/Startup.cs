@@ -29,6 +29,8 @@ namespace GaleTrail
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            // This method adds MudBlazor visual components to our peoject
+            services.AddMudServices();
             services.AddSingleton<WeatherForecastService>();
             services.AddHttpClient();
             services.AddHttpClient("comic", c =>
@@ -41,11 +43,8 @@ namespace GaleTrail
             });
         }
 
-        // This method adds MudBlazor visual components to our peoject
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMudServices();
-        }
+       
+     
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
