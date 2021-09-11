@@ -7,13 +7,29 @@
     <!-- Background image -->
     
 
-
+        <MudCarousel Style="height:200px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
+            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                
+                    <MudText Align="Align.Center" Typo="Typo.h3">Have you any GaleTrailCredits to Redeem?</MudText>
+                
+            </MudCarouselItem>
+            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+                <div class="d-flex" style="height:100%">
+                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MicrosoftAzure" Size="@Size.Large" />
+                </div>
+            </MudCarouselItem>
+            <MudCarouselItem Transition="Transition.Slide">
+                <div class="d-flex" style="height:100%">
+                    <img src="Images/sunset.jpg" />
+                </div>
+            </MudCarouselItem>
+        </MudCarousel>
 
         <h1>Hello, Gale Trail Generation!</h1>
 
         Welcome to your GaleTrail Portal.
 
-        <SurveyPrompt Title="Have you any GaleTrailCredits to Redeem?" />
+        
 
         <h3>@myMessage</h3>
 

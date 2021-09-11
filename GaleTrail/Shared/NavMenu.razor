@@ -6,33 +6,36 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-browser" aria-hidden="true"></span>Dashboard
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-wrench" aria-hidden="true"></span> Generate Block
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="WeatherData">
-                <span class="oi oi-globe" aria-hidden="true"></span> Weather Data
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="Comic">
-                <span class="oi oi-task" aria-hidden="true"></span> XKCD
-            </NavLink>
-        </li>
-    </ul>
+    <MudNavMenu Class="mud-width-full">
+        <ul class="nav flex-column">
+            <li class="nav-item px-3">
+
+                    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
+
+            </li>
+            <li class="nav-item px-3">
+
+                    <MudNavLink Href="/FetchData" Match="NavLinkMatch.All" Icon="@Icons.Filled.Dashboard">Dashboard</MudNavLink>
+
+            </li>
+            <li class="nav-item px-3">
+
+                    <MudNavLink Href="/counter" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">Generate Block</MudNavLink>
+
+
+            </li>
+            <li class="nav-item px-3">
+
+                    <MudNavLink Href="/WeatherData" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.Cloud">Weather Data</MudNavLink>
+
+            </li>
+            <li class="nav-item px-3">
+
+                    <MudNavLink Href="/Comic" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">XKCD</MudNavLink>
+
+            </li>
+        </ul>
+        </MudNavMenu>
 </div>
 
 @code {
