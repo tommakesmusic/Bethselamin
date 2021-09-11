@@ -2,7 +2,6 @@
 
 @inject IHttpClientFactory _clientFactory
 
-<h3>Thank You XKCD</h3>
 
 @if (string.IsNullOrWhiteSpace(errorString) == false)
 {
@@ -14,15 +13,24 @@ else if (xkcd is null)
 }
 else
 {
+<MudPaper Class="pa-16 ma-2" Outlined="true" Square="true">
+    <MudText Typo="Typo.h5">Thank You XKCD</MudText>
+        <div Align="center">
+            <h2>@xkcd.title.</h2>
+            @if (!xkcd.safe_title.Equals(xkcd.title))
+            {
+                <h4>@xkcd.safe_title</h4>
+            }
+            <img src="@xkcd.img" alt="@xkcd.alt" />
 
+            <MudContainer Elevation="1" MaxWidth="MaxWidth.Medium">
+                <MudPaper Class="d-flex pa-4">
+                    <MudText Typo="Typo.caption"><p>@xkcd.alt</p></MudText>
+                </MudPaper>
+            </MudContainer>
 
-    <h2>@xkcd.title.</h2>
-    @if (!xkcd.safe_title.Equals(xkcd.title))
-    {
-        <h4>@xkcd.safe_title</h4>
-    }
-    <img src="@xkcd.img" alt="@xkcd.alt" />
-    <p>@xkcd.alt</p>
+        </div>
+</MudPaper>
 
 }
 
