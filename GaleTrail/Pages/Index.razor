@@ -1,51 +1,49 @@
 ﻿@page "/"
-    <!-- Background image -->
-    <div class="bg-image" style="
-      background-image: url('Images/bg_image.jpg');
-      height: 100vh;
-    ">
-    <!-- Background image -->
-    
 
-        <MudCarousel Style="height:200px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
-            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
-                
-                    <MudText Align="Align.Center" Typo="Typo.h3">Have you any GaleTrailCredits to Redeem?</MudText>
-                
-            </MudCarouselItem>
-            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MicrosoftAzure" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-            <MudCarouselItem Transition="Transition.Slide">
-                <div class="d-flex" style="height:100%">
-                    <img src="Images/sunset.jpg" />
-                </div>
-            </MudCarouselItem>
-        </MudCarousel>
+<div class="mud-theme-primary py-4 px-6 mx-4 rounded">
+    <MudCarousel Style="height:200px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
+        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
 
-        <h1>Hello, Gale Trail Generation!</h1>
+            <MudText Align="Align.Center" Typo="Typo.h3">Have you any GaleTrailCredits to Redeem?</MudText>
 
-        Welcome to your GaleTrail Portal.
+        </MudCarouselItem>
+        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+            <div class="d-flex" style="height:100%">
+                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MicrosoftAzure" Size="@Size.Large" />
+            </div>
+        </MudCarouselItem>
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex" style="height:100%">
+                <img src="Images/sunset.jpg" />
+            </div>
+        </MudCarouselItem>
+    </MudCarousel>
 
-        
+    <h1>Hello, Gale Trail Generation!</h1>
 
-        <h3>@myMessage</h3>
+    Welcome to your GaleTrail Portal.
 
-        <p>
+
+
+    <h3>@myMessage</h3>
+
+    <MudPaper Class="d-flex pa-4" Style="@($"color:{Theme.Palette.InfoContrastText}; background:{Theme.Palette.Info};")">
+
+        <MudText Typo="Typo.h4">
             With the adoption of innovative technologies in collaboration with Version 1,
             GaleTrail will leverage its world-leading Future Environment database in order
             to deliver build quality metrics, turbine recycling statistics and carbon emission
             information to the renewable energy industry and public.
-        </p>
-
-        <span><img src="../images/GaleTrail.png" width="600" height="600" /></span>
-    </div>
+        </MudText>
+    </MudPaper>
+    <span><img src="../images/GaleTrail.png" width="600" height="600" /></span>
+</div>
 
 
     @code
     {
+        private MudTheme Theme = new MudTheme();
+
         public string myMessage = RandomMessage();
 
         public static string RandomMessage()
