@@ -15,27 +15,27 @@
     }
     else
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Date Due</th>
-                    <th>Farm number</th>
-                    <th>Turbine number</th>
-                    <th>Part Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var forecast in forecasts)
-                {
-                    <tr>
-                        <td>@forecast.Date.ToShortDateString()</td>
-                        <td>@forecast.TemperatureC</td>
-                        <td>@forecast.TemperatureF</td>
-                        <td>@forecast.Summary</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+<MudSimpleTable Dense="false" Hover="true" Bordered="true" Striped="true" Style="overflow-x: auto;">
+    <thead>
+        <tr>
+            <th>Date Due</th>
+            <th>Farm number</th>
+            <th>Turbine number</th>
+            <th>Part Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var forecast in forecasts)
+        {
+            <tr>
+                <td>@forecast.Date.ToShortDateString()</td>
+                <td>@forecast.TemperatureC</td>
+                <td>@forecast.TemperatureF</td>
+                <td>@forecast.Summary</td>
+            </tr>
+        }
+    </tbody>
+</MudSimpleTable>
     }
     </MudContainer>
 
