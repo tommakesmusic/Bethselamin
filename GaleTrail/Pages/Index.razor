@@ -1,48 +1,61 @@
 ﻿@page "/"
 
-<div class="mud-theme-primary py-4 px-6 mx-4 rounded">
-    <MudCarousel Style="height:200px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
+<MudThemeProvider />
+
+
+
+
+<h1>Welcome visitor!</h1>
+
+<h3>@myMessage</h3>
+
+<MudPaper Class="d-flex pa-4" Elevation="4">
+
+    <MudText Typo="Typo.h6">
+        Bethselamin is an blockchain ledger system based on <a href="https://www.hyperledger.org" _target="blank">hyperledger</a>.
+        It is aimed at companies who want a full lifecycle chain of evidence for materials, parts and assemblies.
+        It provides regulatory proof of materials tracking and future disposal in a manner in keeping with the future of our environemnt.
+    </MudText>
+</MudPaper>
+<MudPaper Class="d-flex pa-4" Elevation="0" Align="center">
+    <MudCarousel Elevation="4" Style="height:200px; width:800px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
         <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
 
-            <MudText Align="Align.Center" Typo="Typo.h3">Have you any GaleTrailCredits to Redeem?</MudText>
+            <MudText Align="Align.Center" Typo="Typo.h3">"Beth-sel-a-min"</MudText>
 
         </MudCarouselItem>
-        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
-            <div class="d-flex" style="height:100%">
-                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MicrosoftAzure" Size="@Size.Large" />
-            </div>
+        <MudCarouselItem Transition="Transition.Slide">
+
+            <img src="Images/Bethselamin.png" />
+
         </MudCarouselItem>
         <MudCarouselItem Transition="Transition.Slide">
             <div class="d-flex" style="height:100%">
-                <img src="Images/sunset.jpg" />
+                <img src="Images/Bethselamin-2.png" />
             </div>
         </MudCarouselItem>
     </MudCarousel>
-
-    <h1>Hello, Gale Trail Generation!</h1>
-
-    Welcome to your GaleTrail Portal.
-
-
-
-    <h3>@myMessage</h3>
-
-    <MudPaper Class="d-flex pa-4" Style="@($"color:{Theme.Palette.InfoContrastText}; background:{Theme.Palette.Info};")">
-
-        <MudText Typo="Typo.h4">
-            With the adoption of innovative technologies in collaboration with Version 1,
-            GaleTrail will leverage its world-leading Future Environment database in order
-            to deliver build quality metrics, turbine recycling statistics and carbon emission
-            information to the renewable energy industry and public.
-        </MudText>
     </MudPaper>
-    <span><img src="../images/GaleTrail.png" width="600" height="600" /></span>
-</div>
+    <MudPaper Class="d-flex pa-4">
+
+        <p>
+            <MudText Typo="Typo.h5">
+                <a href="http://www.hhgproject.org/entries/bethselamin.html">Bethselamin     </a>
+            </MudText>
+        </p><br />
+
+        <MudContainer MaxWidth="MaxWidth.Small">
+            <MudText Typo="Typo.body1">
+                A fabulously beautiful planet, Bethselamin is now so worried about the cumulative eroision by ten billion visiting tourists a year that any net imbalance between the amount you eat and the amount you excrete whilst on the planet is surgically removed from your bodyweight when you leave: so every time you go to the lavatory there it is vitally important to get a receipt.
+            </MudText>
+        </MudContainer>
+    </MudPaper>
+
 
 
     @code
     {
-        private MudTheme Theme = new MudTheme();
+
 
         public string myMessage = RandomMessage();
 
@@ -50,7 +63,7 @@
         {
             Random rnd = new Random();
             int randomNumber = rnd.Next(0, 3);
-            string[] messageList = { "Blockchain Generation suspended for maintenance. Please reload your page", "You have no new turbines ready. Would you like to deploy one?", "Invalid blockchain transaction at Turbine number 83477820", "No new blockchain transactions detected." };
+            string[] messageList = { "Blockchain Generation and materials tracking", "A databse is a snap-shot, a blockchain is a biography.", "Sunset your blockchained materials correctly, get a Bethselamin bonus!", "Bethselamin uses permissioned blockchains and use 'proof-of-stake'consensus methods." };
             return (string)messageList.GetValue(randomNumber);
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GaleTrail.Data
+namespace Bethselamin.Data
 {
     public class WeatherForecast
     {

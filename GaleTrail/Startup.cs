@@ -10,9 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MudBlazor.Services;
-using GaleTrail.Data;
+using Bethselamin.Data;
 
-namespace GaleTrail
+namespace Bethselamin
 {
     public class Startup
     {

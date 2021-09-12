@@ -1,53 +1,53 @@
-﻿<div class="mud-theme-primary py-4 px-6 mx-4 rounded">
+﻿<MudThemeProvider />
 
-
-    <MudText Align="Align.Center" Typo="Typo.h6"><a href="">GaleTrail.Com </a></MudText>
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Bethselamin</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-
-    <div class="mud-theme-primary" @onclick="ToggleNavMenu">
-        <MudNavMenu Class="mud-width-full">
-            <ul class="nav flex-column">
-                <li class="nav-item px-3">
-
-                    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
-
-                </li>
-                <li class="nav-item px-3">
-
-                    <MudNavLink Href="/FetchData" Match="NavLinkMatch.All" Icon="@Icons.Filled.Dashboard">Dashboard</MudNavLink>
-
-                </li>
-                <li class="nav-item px-3">
-
-                    <MudNavLink Href="/counter" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">Generate Block</MudNavLink>
-
-
-                </li>
-                <li class="nav-item px-3">
-
-                    <MudNavLink Href="/WeatherData" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.Cloud">Weather Data</MudNavLink>
-
-                </li>
-                <li class="nav-item px-3">
-
-                    <MudNavLink Href="/Comic" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">XKCD</MudNavLink>
-
-                </li>
-            </ul>
-        </MudNavMenu>
-    </div>
 </div>
 
-    @code {
-        private bool collapseNavMenu = true;
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
 
-        private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
 
-        private void ToggleNavMenu()
-        {
-            collapseNavMenu = !collapseNavMenu;
-        }
+            <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
+
+        </li>
+        <li class="nav-item px-3">
+
+            <MudNavLink Href="/FetchData" Match="NavLinkMatch.All" Icon="@Icons.Filled.Dashboard">Dashboard</MudNavLink>
+
+        </li>
+        <li class="nav-item px-3">
+
+            <MudNavLink Href="/counter" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">Generate Block</MudNavLink>
+
+
+        </li>
+        <li class="nav-item px-3">
+
+            <MudNavLink Href="/WeatherData" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.Cloud">Weather Data</MudNavLink>
+
+        </li>
+        <li class="nav-item px-3">
+
+            <MudNavLink Href="/Comic" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">XKCD</MudNavLink>
+
+        </li>
+    </ul>
+
+</div>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
     }
+}

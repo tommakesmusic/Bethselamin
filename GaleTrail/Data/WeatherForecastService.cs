@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GaleTrail.Data
+namespace Bethselamin.Data
 {
     public class WeatherForecastService
     {
