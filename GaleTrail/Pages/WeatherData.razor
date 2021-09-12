@@ -14,37 +14,39 @@
     }
     else if (forecast is null)
     {
-        <div class="h4">Loading</div>
+        <MudProgressCircular Color="Color.Default" Indeterminate="true" />
     }
     else
     {
-        <h2>City: @forecast.title</h2>
-        <h4>Timezone: @forecast.timezone</h4>
-        <table class="table table-striped">
-            <thead class="thead-dark">
+<MudPaper Class="pa-16 ma-2" Outlined="true">
+    <h2>City: @forecast.title</h2>
+    <h4>Timezone: @forecast.timezone</h4>
+    <MudSimpleTable Dense="false" Hover="true" Bordered="true" Striped="true" Style="overflow-x: auto;">
+        <thead class="thead-dark">
+            <tr>
+                <th>Date</th>
+                <th>Weather State</th>
+                <th>Low</th>
+                <th>High</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in forecast.consolidated_weather)
+            {
                 <tr>
-                    <th>Date</th>
-                    <th>Weather State</th>
-                    <th>Low</th>
-                    <th>High</th>
+                    <td>@w.applicable_date</td>
+                    <td>@w.weather_state_name</td>
+                    <td>@w.min_temp</td>
+                    <td>@w.max_temp</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var w in forecast.consolidated_weather)
-                {
-                    <tr>
-                        <td>@w.applicable_date</td>
-                        <td>@w.weather_state_name</td>
-                        <td>@w.min_temp</td>
-                        <td>@w.max_temp</td>
-                    </tr>
-                }
+            }
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </MudSimpleTable>
+    </MudPaper>
     }
-    </MudContainer>
+</MudContainer>
 
     @code {
         // https://www.youtube.com/watch?v=cwgck1k0YKU
