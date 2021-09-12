@@ -3,45 +3,47 @@
 @using Bethselamin.Data
 @inject WeatherForecastService ForecastService
 
-<h1>Bethselamin</h1>
-<h4>Dashboard</h4>
 
-<p>These components are nearing the end of their life:</p>
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-16">
+    <MudText Typo="Typo.h3" GutterBottom="true">Bethselamin</MudText>
+    <MudText Class="mb-8">This dashboard will show components nearing the end of their lifecycle.</MudText>
 
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date Due</th>
-                <th>Farm number</th>
-                <th>Turbine number</th>
-                <th>Part Location</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
 
-@code {
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
+    @if (forecasts == null)
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        <MudProgressCircular Color="Color.Default" Indeterminate="true" />
     }
-}
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date Due</th>
+                    <th>Farm number</th>
+                    <th>Turbine number</th>
+                    <th>Part Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var forecast in forecasts)
+                {
+                    <tr>
+                        <td>@forecast.Date.ToShortDateString()</td>
+                        <td>@forecast.TemperatureC</td>
+                        <td>@forecast.TemperatureF</td>
+                        <td>@forecast.Summary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    </MudContainer>
+
+    @code {
+        private WeatherForecast[] forecasts;
+
+        protected override async Task OnInitializedAsync()
+        {
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        }
+    }

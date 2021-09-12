@@ -1,53 +1,7 @@
-﻿<MudThemeProvider />
-
-<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Bethselamin</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-
-            <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Home</MudNavLink>
-
-        </li>
-        <li class="nav-item px-3">
-
-            <MudNavLink Href="/FetchData" Match="NavLinkMatch.All" Icon="@Icons.Filled.Dashboard">Dashboard</MudNavLink>
-
-        </li>
-        <li class="nav-item px-3">
-
-            <MudNavLink Href="/counter" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">Generate Block</MudNavLink>
-
-
-        </li>
-        <li class="nav-item px-3">
-
-            <MudNavLink Href="/WeatherData" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.Cloud">Weather Data</MudNavLink>
-
-        </li>
-        <li class="nav-item px-3">
-
-            <MudNavLink Href="/Comic" Match="NavLinkMatch.All" Color="White" Icon="@Icons.Material.Filled.BrokenImage">XKCD</MudNavLink>
-
-        </li>
-    </ul>
-
-</div>
-
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+﻿<MudNavMenu>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavLink Href="/fetchdata" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Dashboard</MudNavLink>
+    <MudNavLink Href="/counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Generate Block</MudNavLink>
+    <MudNavLink Href="/weatherdata" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather Data</MudNavLink>
+    <MudNavLink Href="/comic" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">XKCD</MudNavLink>
+</MudNavMenu>

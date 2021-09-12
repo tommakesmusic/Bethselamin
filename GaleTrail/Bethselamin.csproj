@@ -34,6 +34,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />
+    <Content Remove="wwwroot\OLD\css\bootstrap\bootstrap.min.css" />
+    <Content Remove="wwwroot\OLD\css\bootstrap\bootstrap.min.css.map" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\css\open-iconic-bootstrap.min.css" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\fonts\open-iconic.eot" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\fonts\open-iconic.otf" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\fonts\open-iconic.svg" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\fonts\open-iconic.ttf" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\font\fonts\open-iconic.woff" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\FONT-LICENSE" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\ICON-LICENSE" />
+    <Content Remove="wwwroot\OLD\css\open-iconic\README.md" />
+    <Content Remove="wwwroot\OLD\css\site.css" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="wwwroot\Images\Gale_Trail_sm.png">

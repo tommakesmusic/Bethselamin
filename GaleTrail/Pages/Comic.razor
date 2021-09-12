@@ -2,57 +2,58 @@
 
 @inject IHttpClientFactory _clientFactory
 
-
-@if (string.IsNullOrWhiteSpace(errorString) == false)
-{
-    <div class="h2">@errorString</div>
-}
-else if (xkcd is null)
-{
-    <div class="h4">Loading</div>
-}
-else
-{
-<MudPaper Class="pa-16 ma-2" Outlined="true" Square="true">
-    <MudText Typo="Typo.h5">Thank You XKCD</MudText>
-        <div Align="center">
-            <h2>@xkcd.title.</h2>
-            @if (!xkcd.safe_title.Equals(xkcd.title))
-            {
-                <h4>@xkcd.safe_title</h4>
-            }
-            <img src="@xkcd.img" alt="@xkcd.alt" />
-
-            <MudContainer Elevation="1" MaxWidth="MaxWidth.Medium">
-                <MudPaper Class="d-flex pa-4">
-                    <MudText Typo="Typo.caption"><p>@xkcd.alt</p></MudText>
-                </MudPaper>
-            </MudContainer>
-
-        </div>
-</MudPaper>
-
-}
-
-@code {
-
-    // uses short hand version of request process, including named client
-
-    XkcdComic xkcd;
-    string errorString;
-
-    protected override async Task OnInitializedAsync()
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-16">
+    @if (string.IsNullOrWhiteSpace(errorString) == false)
     {
-        var client = _clientFactory.CreateClient("comic");
+        <div class="h2">@errorString</div>
+    }
+    else if (xkcd is null)
+    {
+        <div class="h4">Loading</div>
+    }
+    else
+    {
+        <MudPaper Class="pa-16 ma-2" Outlined="true" Square="true">
+            <MudText Typo="Typo.h5">Thank You XKCD</MudText>
+            <div Align="center">
+                <h2>@xkcd.title.</h2>
+                @if (!xkcd.safe_title.Equals(xkcd.title))
+                {
+                    <h4>@xkcd.safe_title</h4>
+                }
+                <img src="@xkcd.img" alt="@xkcd.alt" />
 
-        try
+                <MudContainer Elevation="1" MaxWidth="MaxWidth.Medium">
+                    <MudPaper Class="d-flex pa-4">
+                        <MudText Typo="Typo.caption"><p>@xkcd.alt</p></MudText>
+                    </MudPaper>
+                </MudContainer>
+
+            </div>
+        </MudPaper>
+
+    }
+    </MudContainer>
+
+    @code {
+
+        // uses short hand version of request process, including named client
+
+        XkcdComic xkcd;
+        string errorString;
+
+        protected override async Task OnInitializedAsync()
         {
-            xkcd = await client.GetFromJsonAsync<XkcdComic>("info.0.json");
-            errorString = null;
-        }
-        catch (Exception ex)
-        {
-            errorString = $"There was an error getting the comic: {ex.Message}";
+            var client = _clientFactory.CreateClient("comic");
+
+            try
+            {
+                xkcd = await client.GetFromJsonAsync<XkcdComic>("info.0.json");
+                errorString = null;
+            }
+            catch (Exception ex)
+            {
+                errorString = $"There was an error getting the comic: {ex.Message}";
+            }
         }
     }
-}

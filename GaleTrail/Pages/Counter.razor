@@ -2,59 +2,61 @@
 @using System;
 @using System.Collections.Generic;
 
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-16">
+    <MudPaper Class="pa-16 ma-2" Elevation="3">
+        <h1>Blockchain Genisis Block Generator</h1>
+        @if (currentCount > 0)
+        {
+            <p>Generated Block Id: @currentCount</p>
+        }
+        else
+        {
+            <p> Click on the button below to generate a blockchain key.</p>
+        }
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="IncrementCount"> Generate Block </MudButton>
 
-<MudPaper Class="pa-16 ma-2" Elevation="3">
-    <h1>Blockchain Genisis Block Generator</h1>
-    @if (currentCount > 0)
-    {
-        <p>Generated Block Id: @currentCount</p>
-    }
-    else
-    {
-        <p> Click on the button below to generate a blockchain key.</p>
-    }
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="IncrementCount"> Generate Block </MudButton>
 
-
-    @if (currentCount > 0)
-    {
-        <MudButton Variant="Variant.Filled" Color="Color.Secondary" @onclick="DecrementCount"> Store </MudButton>
-    }
-    <MudSimpleTable Hover="true" Bordered="true" Striped="true" Style="overflow-x: auto;">
-        <thead class="thead-dark">
-            <tr>
-                <th>Stored Blocks</th>
-                <th>Assigned to</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (int block in storeBlock)
-            {
+        @if (currentCount > 0)
+        {
+            <MudButton Variant="Variant.Filled" Color="Color.Secondary" @onclick="DecrementCount"> Store </MudButton>
+        }
+        <MudSimpleTable Hover="true" Bordered="true" Striped="true" Style="overflow-x: auto;">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@block</td>
-                    <td>
-                        <form action="">
-                            <select id="sites" name="Sites">
-                                <label for="Sites">Choose a Site:</label>
-                                @foreach (string str in @category)
-                                {
-                                    <option value="@str">
-                                        @str
-                                    </option>
-                                }
-                            </select>
-                        </form>
-                    </td>
+                    <th>Stored Blocks</th>
+                    <th>Assigned to</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (int block in storeBlock)
+                {
+                    <tr>
+                        <td>@block</td>
+                        <td>
+                            <form action="">
+                                <select id="sites" name="Sites">
+                                    <label for="Sites">Choose a Site:</label>
+                                    @foreach (string str in @category)
+                                    {
+                                        <option value="@str">
+                                            @str
+                                        </option>
+                                    }
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+                }
 
 
-        </tbody>
-    </MudSimpleTable>
+            </tbody>
+        </MudSimpleTable>
 
     </MudPaper>
 
     <h1>@ourMessage</h1>
+
+    </MudContainer>
 
     @code {
         public int currentCount = StoreCount.GetCount();
