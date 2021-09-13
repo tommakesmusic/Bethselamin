@@ -31,6 +31,7 @@
     <None Remove="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" />
     <None Remove="Microsoft.CodeAnalysis.Analyzer.Testing" />
     <None Remove="Classes\" />
+    <None Remove="Microsoft.Azure.Cosmos" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
@@ -62,6 +63,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Analyzers" Version="1.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzer.Testing" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.21.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
