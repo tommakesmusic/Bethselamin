@@ -15,6 +15,16 @@
     <None Remove="MudBlazor.ThemeManager" />
     <None Remove="MudBlazor.Markdown" />
     <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Microsoft.CodeAnalysis.CSharp" />
+    <None Remove="Microsoft.CodeAnalysis.Common" />
+    <None Remove="Microsoft.CodeAnalysis.Razor" />
+    <None Remove="Microsoft.CodeAnalysis.Workspaces.Common" />
+    <None Remove="Microsoft.CodeAnalysis.Analyzers" />
+    <None Remove="Microsoft.CodeAnalysis" />
+    <None Remove="Microsoft.CodeAnalysis.CSharp.Scripting" />
+    <None Remove="Microsoft.CodeAnalysis.NetAnalyzers" />
+    <None Remove="Microsoft.CodeAnalysis.Scripting" />
+    <None Remove="Microsoft.CodeAnalysis.Features" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
@@ -22,6 +32,22 @@
     <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.5" />
     <PackageReference Include="MudBlazor.Markdown" Version="0.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="5.0.9" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Features" Version="3.11.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
