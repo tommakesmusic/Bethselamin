@@ -1,0 +1,64 @@
+﻿@page "/todo"
+
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-16">
+
+    <h3>To Do List (@todos.Count(todo => !todo.IsDone))</h3>
+
+    <MudPaper Class="pa-16 ma-2" Elevation="3">
+        <MudList Clickable="true">
+
+
+            @foreach (var todo in todos)
+            {
+
+
+                <MudCard Outlined="true">
+                    <MudCardContent>
+
+                        <input type="checkbox" @bind="todo.IsDone" />
+
+                        <input @bind="todo.Title" />
+
+                    </MudCardContent>
+                </MudCard>
+            }
+
+
+        </MudList>
+
+
+        <MudTooltip Text="Type a task to add to your To Do List!">
+            <input placeholder="Something todo" @bind="newTodo" />
+        </MudTooltip>
+        <MudTooltip Text="Click here to add what you've typed to your To Do List!"><MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="AddToDo"> What needs to be done? </MudButton></MudTooltip>
+    </MudPaper>
+
+    @if (alert)
+    {
+
+        <MudAlert Severity="Severity.Warning">You must type something before you can add it!</MudAlert>
+    }
+</MudContainer>
+
+
+
+@code {
+    private static List<ToDoItem> todos = new();
+    private string newTodo;
+    private bool alert = false;
+
+    private void AddToDo()
+    {
+        if (string.IsNullOrWhiteSpace(newTodo))
+        {
+            alert = true;
+        }
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            todos.Add(new ToDoItem { Title = newTodo });
+            newTodo = string.Empty;
+            alert = false;
+        }
+    }
+}
