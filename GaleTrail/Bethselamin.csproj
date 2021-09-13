@@ -25,6 +25,11 @@
     <None Remove="Microsoft.CodeAnalysis.NetAnalyzers" />
     <None Remove="Microsoft.CodeAnalysis.Scripting" />
     <None Remove="Microsoft.CodeAnalysis.Features" />
+    <None Remove="Microsoft.CodeAnalysis.CSharp.CodeStyle" />
+    <None Remove="Microsoft.CodeAnalysis.EditorFeatures.Text" />
+    <None Remove="Microsoft.Azure.Functions.Analyzers" />
+    <None Remove="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" />
+    <None Remove="Microsoft.CodeAnalysis.Analyzer.Testing" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
@@ -48,6 +53,14 @@
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="3.11.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Features" Version="3.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeStyle" Version="3.11.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.EditorFeatures.Text" Version="3.11.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Analyzers" Version="1.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing" Version="1.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzer.Testing" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
