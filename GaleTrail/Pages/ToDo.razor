@@ -15,12 +15,17 @@
 
                 <MudCard Outlined="true">
                     <MudCardContent>
-
-                        <input type="checkbox" @bind="todo.IsDone" />
-
-                        <input @bind="todo.Title" />
-
+                        <MudCheckBox @bind-Checked="@todo.IsDone" Color="Color.Primary"></MudCheckBox>
+                        @if (todo.IsDone)
+                        {
+                            <MudText Typo="Typo.caption">@todo.Title</MudText>  
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.button">@todo.Title</MudText>
+                        }
                     </MudCardContent>
+                    <MudDivider />
                 </MudCard>
             }
 
@@ -29,7 +34,8 @@
 
 
         <MudTooltip Text="Type a task to add to your To Do List!">
-            <input placeholder="Something todo" @bind="newTodo" />
+            <MudTextField @bind-Value="@newTodo" Label="Type something" Variant="Variant.Text"></MudTextField>
+            
         </MudTooltip>
         <MudTooltip Text="Click here to add what you've typed to your To Do List!"><MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="AddToDo"> What needs to be done? </MudButton></MudTooltip>
     </MudPaper>
@@ -47,8 +53,8 @@
     private static List<ToDoItem> todos = new();
     private string newTodo;
     private bool alert = false;
-
-    private void AddToDo()
+    
+private void AddToDo()
     {
         if (string.IsNullOrWhiteSpace(newTodo))
         {
