@@ -35,11 +35,11 @@ namespace Bethselamin
             services.AddHttpClient();
             services.AddHttpClient("comic", c =>
             {
-                c.BaseAddress = new Uri(Configuration.GetValue<String>("ComicAPI")); // added by TC tutorial for short version
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("ComicAPI")); // added by TC tutorial for short version
             });
             services.AddHttpClient("meta", c =>
             {
-                c.BaseAddress = new Uri(Configuration.GetValue<String>("MetaAPI")); // added by TC tutorial for short version
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("MetaAPI")); // added by TC tutorial for short version
             });
         }
 
