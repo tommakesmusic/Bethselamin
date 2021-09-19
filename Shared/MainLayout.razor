@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />Bethselamin
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Custom.Brands.MicrosoftAzure" Color="Color.Inherit" Link="https://bethselamin.azurewebsites.net" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.Apple" Color="Color.Inherit" Link="https://apple.com/uk" Target="_blank" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Dashboard</MudText>
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
