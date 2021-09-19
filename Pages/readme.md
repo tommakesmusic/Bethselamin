@@ -24,4 +24,4 @@ Index.razor is analogous to the Index.html page of a standard website. It is our
 
 ToDo.razor is a page that adds some simple 'To Do' list functionality to the site as preparations for another project.
 
-WeatherData.razoer is a page that uses MetaWaether's api to display genuine weather data for a city, chose at random from a list of five. 
+WeatherData.razoer is a page that uses MetaWeather's api to display genuine weather data for a city, chose at random from a list of five. 
