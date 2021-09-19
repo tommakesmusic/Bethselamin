@@ -10,7 +10,7 @@ and had the Counter page modified to display pretend 'blockchain' generator for 
 
 It has since been modified to add very a simple 'To Do' functionality as a test for another project.
 
-All of the functionality comes from demos on MudBlazor's site, IamTimCorey on YouTube and sme of my own experimentation.
+All of the functionality comes from demos on MudBlazor's site, IamTimCorey on YouTube and some of my own experimentation.
 
 I am using this process to learn c#, Blazor and Git/Github. I have also used code analyzers to help finding errors/bad practice etc.
 
