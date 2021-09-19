@@ -16,7 +16,7 @@ I am using this process to learn c#, Blazor and Git/Github. I have also used cod
 
 The folder structure of this repository is modelled after the Blazor Server Demo App supplied by Microsoft in Visaul Studio Community 2019.
 
-This folder level comtains all the files necessary to allow the IDE to build the app and to allow the server to run.
+This project contains all the source files but NOT the Visaual Studio projcet file.
 
 _Imports.razor holds all the necessary folder and packages and allows them to be accessed from anywhere in the project
 
